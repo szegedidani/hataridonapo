@@ -1,0 +1,28 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(routerlink='main-page' href="/main-page") Főoldal
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor02', aria-controls='navbarColor02', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarColor02.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item(routerLinkActive="active")
+        a(class='nav-link', routerlink='profil', href='/profil') Profil
+      li.nav-item
+        a.nav-link(routerlink='knowlage', routerLinkActive="active", href='/knowlage') Tudásbázis
+      li.nav-item
+        a.nav-link(routerlink='restful-api', routerLinkActive="active", href='/restful-api') RESTful API
+      li.nav-item
+        a.nav-link(routerlink='contact-us', routerLinkActive="active", href='/contact-us') Kapcsolat
+    form.form-inline.my-2.my-lg-0
+      button.btn.btn-warning((click)='showModal()', data-toggle='modal', data-target='#exampleModal') Határidőnapló
+#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Modal title
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        | ...
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Save changes
