@@ -1,0 +1,76 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+
+header {
+  padding: 30px;
+}
+
+div.container {
+  background: rgb(170, 197, 222);
+  background: -moz-linear-gradient(top, rgba(170, 197, 222, 1) -1%, rgba(170, 197, 222, 1) 0%, rgba(206, 219, 233, 1) 0%, rgba(97, 153, 199, 1) 16%, rgba(58, 132, 195, 1) 28%, rgba(58, 139, 194, 1) 37%, rgba(58, 139, 194, 1) 37%, rgba(58, 132, 195, 1) 40%, rgba(58, 139, 194, 1) 58%, rgba(58, 139, 194, 1) 58%, rgba(38, 85, 139, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(170, 197, 222, 1) -1%, rgba(170, 197, 222, 1) 0%, rgba(206, 219, 233, 1) 0%, rgba(97, 153, 199, 1) 16%, rgba(58, 132, 195, 1) 28%, rgba(58, 139, 194, 1) 37%, rgba(58, 139, 194, 1) 37%, rgba(58, 132, 195, 1) 40%, rgba(58, 139, 194, 1) 58%, rgba(58, 139, 194, 1) 58%, rgba(38, 85, 139, 1) 100%);
+  background: linear-gradient(to bottom, rgba(170, 197, 222, 1) -1%, rgba(170, 197, 222, 1) 0%, rgba(206, 219, 233, 1) 0%, rgba(97, 153, 199, 1) 16%, rgba(58, 132, 195, 1) 28%, rgba(58, 139, 194, 1) 37%, rgba(58, 139, 194, 1) 37%, rgba(58, 132, 195, 1) 40%, rgba(58, 139, 194, 1) 58%, rgba(58, 139, 194, 1) 58%, rgba(38, 85, 139, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aac5de', endColorstr='#26558b', GradientType=0);
+}
+
+section {
+  padding: 30px;
+}
+
+footer {
+  margin-top: 195px;
+  border-top: 0.5px solid black;
+  font-size: 10px;
+  color: black;
+  margin-bottom: 0;
+  display: block;
+  height: 44px;
+}
+
+footer p:first-child {
+  position: relative;
+  left: 25%;
+  top: 25%;
+}
+
+footer p:last-child {
+  position: relative;
+  left: 75%;
+  bottom: 25%;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+footer a:nth-child(1):hover {
+  color: #1DA1F2;
+}
+
+footer a:nth-child(2):hover {
+  color: #4267B2;
+}
+
+footer a:nth-child(3):hover {
+  color: #FF0000;
+}
+
+footer a:nth-child(4):hover {
+  color: #DF3E7B;
+}
+
+footer a:nth-child(5):hover {
+  color: #000000;
+}
+
+.item img {
+  margin: 50px auto;
+  width: 10%;
+}
+
+footer i {
+  text-decoration: none;
+}

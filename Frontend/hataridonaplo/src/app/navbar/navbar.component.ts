@@ -16,7 +16,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  showModal() {
-    $('#exampleModal').modal('show');
-  }
 }
