@@ -1,0 +1,25 @@
+.container {
+  background: rgb(169, 3, 41);
+  background: -moz-linear-gradient(top, rgba(169, 3, 41, 1) 0%, rgba(143, 2, 34, 1) 44%, rgba(109, 0, 25, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(169, 3, 41, 1) 0%, rgba(143, 2, 34, 1) 44%, rgba(109, 0, 25, 1) 100%);
+  background: linear-gradient(to bottom, rgba(169, 3, 41, 1) 0%, rgba(143, 2, 34, 1) 44%, rgba(109, 0, 25, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0);
+  color: aliceblue;
+}
+
+#steps {
+  padding-bottom: 76px;
+}
+
+img {
+  width: 300px;
+  height: 200px;
+}
+
+header {
+  padding: 50px;
+}
+
+section {
+  padding: 50px;
+}

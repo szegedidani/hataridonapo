@@ -1,0 +1,70 @@
+#userModal {
+  background: rgba(76, 76, 76, 1);
+  background: -moz-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(89, 89, 89, 1) 20%, rgba(71, 71, 71, 1) 40%, rgba(44, 44, 44, 1) 72%, rgba(0, 0, 0, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76, 76, 76, 1)), color-stop(0%, rgba(102, 102, 102, 1)), color-stop(20%, rgba(89, 89, 89, 1)), color-stop(40%, rgba(71, 71, 71, 1)), color-stop(72%, rgba(44, 44, 44, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
+  background: -webkit-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(89, 89, 89, 1) 20%, rgba(71, 71, 71, 1) 40%, rgba(44, 44, 44, 1) 72%, rgba(0, 0, 0, 1) 100%);
+  background: -o-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(89, 89, 89, 1) 20%, rgba(71, 71, 71, 1) 40%, rgba(44, 44, 44, 1) 72%, rgba(0, 0, 0, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(89, 89, 89, 1) 20%, rgba(71, 71, 71, 1) 40%, rgba(44, 44, 44, 1) 72%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(to bottom, rgba(76, 76, 76, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(89, 89, 89, 1) 20%, rgba(71, 71, 71, 1) 40%, rgba(44, 44, 44, 1) 72%, rgba(0, 0, 0, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#000000', GradientType=0);
+}
+
+.modal-content {
+  color: black;
+  background: url("/src/assets/background/Abstract-background-with-a-3d-pattern-Free-Vector.jpg")
+}
+
+footer {
+  margin-top: 195px;
+  border-top: 0.5px solid black;
+  font-size: 10px;
+  color: black;
+  margin-bottom: 0;
+  display: block;
+  height: 44px;
+}
+
+footer p:first-child {
+  position: relative;
+  left: 25%;
+  top: 25%;
+}
+
+footer p:last-child {
+  position: relative;
+  left: 75%;
+  bottom: 25%;
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+footer a:nth-child(1):hover {
+  color: red;
+}
+
+footer a:nth-child(2):hover {
+  color: green;
+}
+
+footer a:nth-child(3):hover {
+  color: white;
+}
+
+footer a:nth-child(4):hover {
+  color: red;
+}
+
+.item img {
+  margin: 50px auto;
+  width: 10%;
+}
+
+footer i {
+  text-decoration: none;
+}

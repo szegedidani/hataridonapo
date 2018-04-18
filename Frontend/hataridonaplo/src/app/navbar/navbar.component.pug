@@ -13,16 +13,76 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       li.nav-item
         a.nav-link(routerlink='contact-us', routerLinkActive="active", href='/contact-us') Kapcsolat
     form.form-inline.my-2.my-lg-0
-      button.btn.btn-warning( data-toggle='modal', data-target='#exampleModal') Határidőnapló
-#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-  .modal-dialog(role='document')
+      button.btn.btn-warning( data-toggle='modal', data-target='#userModal') Határidőnapló
+
+// Modal
+#userModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='userModalLabel', aria-hidden='true')
+  .modal-dialog.modal-lg(role='document')
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title Modal title
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
+        ul.nav.nav-pills.nav-fill
+          li.nav-item
+            a#login-tab.nav-link.active(data-toggle='tab', href='#login', role='tab', aria-controls='login', aria-selected='true') Bejelentkezés
+          li.nav-item
+            a#register-tab.nav-link(data-toggle='tab', href='#register', role='tab', aria-controls='register', aria-selected='false') Regisztráció
+        button.close(type='button', data-dismiss='modal', aria-label='Bezár')
           span(aria-hidden='true') ×
-      .modal-body
-        | ...
-      .modal-footer
-        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-        button.btn.btn-primary(type='button') Save changes
+      #userTabContent.tab-content
+        #login.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='login-tab')
+          // Login Form
+          .modal-body
+            .row
+              .col-10.offset-1
+                h2 Jelentkezz be !
+                form(action='login')
+                  .form-group
+                    label(for='email') Email cím:
+                    input.form-control(type='email', name='email')
+                  .form-group
+                    label(for='password') Jelszó:
+                    input.form-control(type='password', name='password')
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
+            button.btn.btn-primary(type='button') Belépés
+        #register.tab-pane.fade(role='tabpanel', aria-labelledby='register-tab')
+          // Register Form
+          .modal-body
+            .row
+              .col-10.offset-1
+                h2 Regisztrálj be !
+                form(action='register')
+                  .form-group
+                    label(for='userName') Felhasználónév:
+                    input.form-control(type='text', name='userName')
+                  .form-group
+                    label(for='email') Email cím
+                    input.form-control(type='email', name='email')
+                  .form-group
+                    label(for='password') Jelszó
+                    input.form-control(type='password', name='userName')
+                  .form-group
+                    label(for='passwordRe') Jelszó újra:
+                    input.form-control(type='password', name='passwordRe')
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
+            button.btn.btn-primary(type='button') Regisztráció
+
+//Footer
+footer#footer.fixed-bottom
+  .continer
+    .row
+      .col-12
+        p
+          | Szegedi Dániel
+          i.far.fa-copyright
+          |  2018
+        p
+          a(href='https://angular.io/docs', data-toggle='tooltip', data-placement='top', title='Angular Docs')
+            i.fab.fa-angular
+          a(href='https://nodejs.org/en/docs/', data-toggle='tooltip', data-placement='top', title='NodeJs Docs')
+            i.fab.fa-node-js
+          a(href='https://github.com/', data-toggle='tooltip', data-placement='top', title='Github')
+            i.fab.fa-github
+          a(href='https://docs.npmjs.com/', data-toggle='tooltip', data-placement='top', title='NPM Docs')
+            i.fab.fa-npm
+

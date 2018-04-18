@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { FormsModule } from '@angular/forms'
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -11,6 +12,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { KnowlageComponent } from './knowlage/knowlage.component';
 import { RestfulApiComponent } from './restful-api/restful-api.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+
 
 const routes: Routes = [
   { path: '', component: MainPageComponent, pathMatch: "full" },
@@ -35,7 +37,7 @@ const routes: Routes = [
   imports: [
     FormsModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]

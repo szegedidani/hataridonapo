@@ -1,1 +1,36 @@
-p contact-us works!
+.container
+  header
+    .row
+      .col-12
+        h1 Kapcsolat
+  section.form
+    .row
+      .col-12
+        p Irj nekünk ha bármi észrevételed van !
+      .col-8
+        form(action='message')
+          .form-group
+            input#name.form-control(type='text', aria-describedby='nameDescriber', placeholder='Név')
+          .form-group
+            input.form-control(type='email', placeholder='Email')
+          .form-group
+            label(for='email') Tárgy
+            input.form-control(type='text')
+          .form-group
+            label(for='email') Üzenet
+            textarea#messageTextArea.form-control(rows='6')
+          button.btn.btn-info(type='submit') Küldés
+  section.map
+    .row
+      .col-5
+        #map
+      .col-7
+        ul.list-group
+          li.list-group-item.list-group-item-success
+            | Elérhetőségek:
+          li.list-group-item.list-group-item-success
+            | Cím: Budapest Budafoki út 56.
+          li.list-group-item.list-group-item-success
+            | Tel.: +36 31 78 18 319
+          li.list-group-item.list-group-item-success
+            | Email: szegedi.dani22@gmail.com
