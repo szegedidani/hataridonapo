@@ -15,22 +15,19 @@
 }
 
 footer {
-  margin-top: 195px;
   border-top: 0.5px solid black;
   font-size: 10px;
   color: black;
-  margin-bottom: 0;
-  display: block;
-  height: 44px;
+  height: 40px;
 }
 
-footer p:first-child {
+footer div.copyright {
   position: relative;
   left: 25%;
   top: 25%;
 }
 
-footer p:last-child {
+footer div.fonts {
   position: relative;
   left: 75%;
   bottom: 25%;
@@ -58,13 +55,4 @@ footer a:nth-child(3):hover {
 
 footer a:nth-child(4):hover {
   color: red;
-}
-
-.item img {
-  margin: 50px auto;
-  width: 10%;
-}
-
-footer i {
-  text-decoration: none;
 }
