@@ -50,7 +50,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .row
               .col-10.offset-1
                 h2 Regisztrálj be !
-                form(action='register')
+                form(action='/register', name="register" method='post')
                   .form-group
                     label(for='userName') Felhasználónév:
                     input.form-control(type='text', name='userName')
@@ -65,7 +65,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                     input.form-control(type='password', name='passwordRe')
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
-            button.btn.btn-primary(type='button') Regisztráció
+            button.btn.btn-primary(type='submit', for="register") Regisztráció
 
 //Footer
 footer#footer.fixed-bottom
@@ -77,12 +77,12 @@ footer#footer.fixed-bottom
           i.far.fa-copyright
           |  2018
         .fonts
-          a(href='https://angular.io/docs', data-toggle='tooltip', data-placement='top', title='Angular Docs')
+          a(href='https://angular.io/docs', target="blank" data-toggle='tooltip', data-placement='top', title='Angular Docs')
             i.fab.fa-angular
-          a(href='https://nodejs.org/en/docs/', data-toggle='tooltip', data-placement='top', title='NodeJs Docs')
+          a(href='https://nodejs.org/en/docs/', target="blank" data-toggle='tooltip', data-placement='top', title='NodeJs Docs')
             i.fab.fa-node-js
-          a(href='https://github.com/', data-toggle='tooltip', data-placement='top', title='Github')
+          a(href='https://github.com/', target="blank" data-toggle='tooltip', data-placement='top', title='Github')
             i.fab.fa-github
-          a(href='https://docs.npmjs.com/', data-toggle='tooltip', data-placement='top', title='NPM Docs')
+          a(href='https://docs.npmjs.com/', target="blank" data-toggle='tooltip', data-placement='top', title='NPM Docs')
             i.fab.fa-npm
 

@@ -7,7 +7,7 @@
     .row
       .col-12
         p Irj nekünk ha bármi észrevételed van !
-      .col-8
+      .col-12.col-md-12.col-lg-8
         form(action='message')
           .form-group
             input#name.form-control(type='text', aria-describedby='nameDescriber', placeholder='Név')
@@ -22,9 +22,9 @@
           button.btn.btn-info(type='submit') Küldés
   section.map
     .row
-      .col-5
+      .col-lg-5.col-md-12.col-12
         #map
-      .col-7
+      .col-lg-7.col-md-12.col-12
         ul.list-group
           li.list-group-item.list-group-item-success
             | Elérhetőségek:
