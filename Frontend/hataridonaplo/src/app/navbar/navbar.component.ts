@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { Method } from 'babel-types';
 
 
 @Component({
@@ -9,11 +10,11 @@ import { ViewChild } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-
   constructor() {
   }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
   }
 
 }

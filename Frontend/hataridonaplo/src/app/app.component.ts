@@ -9,4 +9,5 @@ import { Observable } from 'rxjs/Observable'
 })
 export class AppComponent {
   title = 'Határidőnapló';
+
 }

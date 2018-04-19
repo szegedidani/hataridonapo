@@ -23,8 +23,9 @@
   section.map
     .row
       .col-lg-5.col-md-12.col-12
-        #map
-      .col-lg-7.col-md-12.col-12
+        agm-map([latitude]='lat', [longitude]='lng')
+          agm-marker([latitude]='lat', [longitude]='lng')
+      .col-lg-7.col-md-12.col-12#contact
         ul.list-group
           li.list-group-item.list-group-item-success
             | Elérhetőségek:

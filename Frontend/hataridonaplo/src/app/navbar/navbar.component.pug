@@ -50,7 +50,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .row
               .col-10.offset-1
                 h2 Regisztrálj be !
-                form(action='/register', name="register" method='post')
+                form(action='localhost:3500/users', id="register" method='post')
                   .form-group
                     label(for='userName') Felhasználónév:
                     input.form-control(type='text', name='userName')
@@ -63,9 +63,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                   .form-group
                     label(for='passwordRe') Jelszó újra:
                     input.form-control(type='password', name='passwordRe')
+                  button.btn.btn-primary(type='submit', form='register') Regisztráció
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
-            button.btn.btn-primary(type='submit', for="register") Regisztráció
 
 //Footer
 footer#footer.fixed-bottom

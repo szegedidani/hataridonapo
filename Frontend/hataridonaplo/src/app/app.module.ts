@@ -33,11 +33,15 @@ const routes: Routes = [
     RestfulApiComponent,
     ContactUsComponent
 
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyRCk3P8AuGP7D_y2etWlcI7UvScs0sys'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
