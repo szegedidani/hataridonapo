@@ -50,20 +50,26 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .row
               .col-10.offset-1
                 h2 Regisztrálj be !
-                form(action='localhost:3500/users', id="register" method='post')
+                form(action='http://localhost:3500/register', id="register" method='post')
                   .form-group
                     label(for='userName') Felhasználónév:
-                    input.form-control(type='text', name='userName')
+                    input.form-control#userName(type='text', name='userName')
+                    .invalid-feedback
+                      | A felhasználónév nem tartalmazhat speciális karaktereket !
                   .form-group
                     label(for='email') Email cím
-                    input.form-control(type='email', name='email')
+                    input.form-control#email(type='email', name='email')
+                    .invalid-feedback
+                      | Nem helyes az email cím !
                   .form-group
                     label(for='password') Jelszó
                     input.form-control(type='password', name='userName')
                   .form-group
                     label(for='passwordRe') Jelszó újra:
-                    input.form-control(type='password', name='passwordRe')
-                  button.btn.btn-primary(type='submit', form='register') Regisztráció
+                    input.form-control#passwordRe(type='password', name='passwordRe')
+                    .invalid-feedback
+                      | A jelszavak nem egyeznek meg !
+                  button.btn.btn-primary(type='submit', form='register', (click)='onSubmit()') Regisztráció  
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
 

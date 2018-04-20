@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
-import { Method } from 'babel-types';
+import { Method, Pattern } from 'babel-types';
+import { PatternValidator } from '@angular/forms';
+import { HttpServiceService } from '../http-service.service';
 
 
 @Component({
@@ -9,12 +11,18 @@ import { Method } from 'babel-types';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  specialChars: any = /[^A-Za-z0-9]/;
 
-  constructor() {
+  constructor(public HttpService: HttpServiceService) {
   }
 
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    this.HttpService.create();
+  }
+
 }
+
