@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { HttpModule } from '@angular/http';
 
@@ -13,11 +13,11 @@ import { ProfilComponent } from './profil/profil.component';
 import { KnowlageComponent } from './knowlage/knowlage.component';
 import { RestfulApiComponent } from './restful-api/restful-api.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-
+import { HttpServiceService } from './http-service.service';
 
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent, pathMatch: "full" },
+  { path: '', component: MainPageComponent, pathMatch: 'full' },
   { component: MainPageComponent, path: 'main-page' },
   { component: ProfilComponent, path: 'profil' },
   { component: KnowlageComponent, path: 'knowlage' },
@@ -46,7 +46,7 @@ const routes: Routes = [
       apiKey: 'AIzaSyDyRCk3P8AuGP7D_y2etWlcI7UvScs0sys'
     })
   ],
-  providers: [],
+  providers: [HttpServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

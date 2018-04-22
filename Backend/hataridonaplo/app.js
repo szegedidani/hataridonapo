@@ -5,18 +5,29 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const db = require('./config/datebases')
 
-var indexRouter = require('./routes/index');
+var datesRouter = require('./routes/dates');
 var usersRouter = require('./routes/users');
 
-mongoose.connect('...')
+
+// Connect to MongoDB
+mongoose.connect(db.uri, db.options).then(
+  () => {
+    console.log('MongoDB connected.')
+  },
+  err => {
+    console.error('MongoDB error.:' + err)
+  }
+);
+
 
 var app = express();
 const port = "3500"
 
 //CORS Handler
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200/");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
@@ -34,7 +45,7 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/dates', datesRouter);
 app.use('/users', usersRouter);
 
 //Set Body-Parser
@@ -43,8 +54,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
-app.use('/register', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

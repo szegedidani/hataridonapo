@@ -1,38 +1,14 @@
-var express = require('express');
-var router = express.Router();
-const bodyParser = require('body-parser');
-const path = require('path');
+const userController = require('../controllers/user.controller')
+const express = require('express')
+const usersRouter = express.Router()
 
-const app = express();
+usersRouter.route('/')
+  .get(userController.list)
+  .post(userController.addUser);
 
+usersRouter.route('/:id')
+  .get(userController.find)
+  .put(userController.update)
+  .delete(userController.remove);
 
-router.post('/', (req, res, next) => {
-  let content =
-    `<pre>
-  ${JSON.stringify(req.body, null,  4)}
-  </pre>`;
-  res.send(content);
-})
-
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('Database data');
-});
-
-
-router.post('/', function (req, res, next) {
-  res.send(req.body);
-});
-
-
-router.delete('/', function (req, res, next) {
-  res.send('Deleted content');
-});
-
-
-router.put('/', (req, res, next) => {
-  res.send(req.body)
-});
-
-
-module.exports = router;
+module.exports = usersRouter

@@ -50,26 +50,26 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .row
               .col-10.offset-1
                 h2 Regisztrálj be !
-                form(action='http://localhost:3500/register', id="register" method='post')
+                form#register(action='http://localhost:3500/users', method='post', #registerForm='ngForm', (ngSubmit)='onSubmit(registerForm.value)')
                   .form-group
                     label(for='userName') Felhasználónév:
-                    input.form-control#userName(type='text', name='userName')
+                    input#userName.form-control(type='text', name='userName', [(ngModel)]='registerModel.userName')
                     .invalid-feedback
                       | A felhasználónév nem tartalmazhat speciális karaktereket !
                   .form-group
                     label(for='email') Email cím
-                    input.form-control#email(type='email', name='email')
+                    input.form-control#email(type='email', name='userEmail', [(ngModel)]='registerModel.userEmail')
                     .invalid-feedback
                       | Nem helyes az email cím !
                   .form-group
                     label(for='password') Jelszó
-                    input.form-control(type='password', name='userName')
+                    input.form-control(type='password', name='password', [(ngModel)]='registerModel.password')
                   .form-group
                     label(for='passwordRe') Jelszó újra:
-                    input.form-control#passwordRe(type='password', name='passwordRe')
+                    input.form-control#passwordRe(type='password', name='passwordRe', [(ngModel)]='registerModel.passwordRe')
                     .invalid-feedback
                       | A jelszavak nem egyeznek meg !
-                  button.btn.btn-primary(type='submit', form='register', (click)='onSubmit()') Regisztráció  
+                  button.btn.btn-primary(type='submit', value="submit") Regisztráció
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
 
