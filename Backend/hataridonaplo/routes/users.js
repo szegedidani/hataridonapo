@@ -3,8 +3,8 @@ const express = require('express')
 const usersRouter = express.Router()
 
 usersRouter.route('/')
-  .get(userController.list)
-  .post(userController.addUser);
+  /*.get(userController.list)*/
+  .post(userController.searchUser);
 
 usersRouter.route('/:id')
   .get(userController.find)
