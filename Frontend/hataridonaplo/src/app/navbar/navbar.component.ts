@@ -6,7 +6,7 @@ import { HttpServiceService } from '../http-service.service';
 import { FormsModule } from '@angular/forms';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
-
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +14,6 @@ import { HttpClient } from 'selenium-webdriver/http';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  specialChars: any = /[^A-Za-z0-9]/;
   registerModel: object = {
     userName: '',
     userEmail: '',
@@ -22,14 +21,23 @@ export class NavbarComponent implements OnInit {
     passwordRe: ''
   };
 
-  constructor(public HttpService: HttpServiceService) {
-  }
-  onSubmit = function () {
-    this.HttpService.create(this.registerModel);
-    this.HttpService.getAll();
+  loginModel: object = {
+    userEmail: '',
+    password: ''
   };
 
-  ngOnInit(): void {
+  constructor(public HttpService: HttpServiceService) {
+  }
+  registerUser = function () {
+    this.HttpService.addUser(this.registerModel);
+  };
+
+
+  loginUser = function () {
+    this.HttpService.logIn(this.loginModel);
+  };
+
+  ngOnInit() {
   }
 
 }

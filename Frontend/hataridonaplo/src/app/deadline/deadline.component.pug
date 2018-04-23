@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-2.offset-5
+      button.btn.btn-success(type='button', (click)='showDates()') Határidő mutatása
+    .col-12
+      form(action='localhost:3500/dates', method='post', #dateForm='ngForm', (ngSubmit)='addDate(dateForm.value)')
+        table.table.table-striped
+          thead
+            tr
+              th Cím
+              th Határidő
+              th Leírás
+          tbody
+            tr
+              td
+                input#title.form-control(type='text', name='title', [(ngModel)]='dates.title')
+              td
+                input#date.form-control(type='text', name='date', [(ngModel)]='dates.date')
+              td
+                input#description.form-control(type='text', name='description', [(ngModel)]='dates.description')
+              td
+                .btn-group
+                  button.btn.btn-warning(type='submit') Bevitel
+            tr(*ngFor='let date of usersDates')
+              td {{date.title}}
+              td {{date.date.slice(0,10)}}
+              td {{date.description}}
+

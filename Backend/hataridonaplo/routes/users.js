@@ -3,7 +3,7 @@ const express = require('express')
 const usersRouter = express.Router()
 
 usersRouter.route('/')
-  /*.get(userController.list)*/
+  .get(userController.list)
   .post(userController.searchUser);
 
 usersRouter.route('/:id')

@@ -1,23 +1,37 @@
 const Dates = require('../models/datesModel')
 
+const list = (req, res) => {
+    Dates.find({}, (err, post) => {
+        if (err) {
+            res.send(err)
+        }
+        res.json(post);
+    })
+};
+
+
 module.exports = {
+
     list: (req, res) => {
+        list(req, res)
+    },
+
+    find: (req, res) => {
         Dates.find({}, (err, post) => {
             if (err) {
                 res.send(err)
             }
-            res.json(post);
+            let usersDates = post.filter(date => date.userId == req.params.userId)
+            res.send(usersDates)
         })
     },
+    /*Dates.findById(req.params.id, (err, post) => {
+        if (err) {
+            res.send(err)
+        }*/
 
-    find: (req, res) => {
-        Dates.findById(req.params.id, (err, post) => {
-            if (err) {
-                res.send(err)
-            }
-            res.json(post)
-        })
-    },
+
+
 
     create: (req, res) => {
         Dates.create(req.body, (err, post) => {

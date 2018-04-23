@@ -14,6 +14,7 @@ import { KnowlageComponent } from './knowlage/knowlage.component';
 import { RestfulApiComponent } from './restful-api/restful-api.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HttpServiceService } from './http-service.service';
+import { DeadlineComponent } from './deadline/deadline.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { component: ProfilComponent, path: 'profil' },
   { component: KnowlageComponent, path: 'knowlage' },
   { component: RestfulApiComponent, path: 'restful-api' },
-  { component: ContactUsComponent, path: 'contact-us' }
+  { component: ContactUsComponent, path: 'contact-us' },
+  { component: DeadlineComponent, path: 'deadline' }
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Routes = [
     ProfilComponent,
     KnowlageComponent,
     RestfulApiComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    DeadlineComponent
 
 
   ],
@@ -44,7 +47,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDyRCk3P8AuGP7D_y2etWlcI7UvScs0sys'
-    })
+    }),
+    BrowserModule
   ],
   providers: [HttpServiceService],
   bootstrap: [AppComponent]

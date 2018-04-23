@@ -6,9 +6,11 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/datebases')
+const helmet = require('helmet')
 
 var datesRouter = require('./routes/dates');
 var usersRouter = require('./routes/users');
+
 
 
 // Connect to MongoDB
@@ -28,10 +30,14 @@ const port = "3500"
 //CORS Handler
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
+
+
+app.use(helmet());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

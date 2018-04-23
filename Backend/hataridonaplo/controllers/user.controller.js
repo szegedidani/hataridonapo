@@ -1,13 +1,5 @@
 const User = require('../models/userModel');
 
-const list = (req, res) => {
-    User.find({}, (err, post) => {
-        if (err) {
-            res.send(err)
-        }
-        res.json(post);
-    })
-}
 
 const register = (req, res) => {
     let found = false;
@@ -48,19 +40,33 @@ const login = (req, res) => {
         for (let i in post) {
             if (post[i].userEmail === req.body.userEmail) {
                 if (post[i].password === req.body.password) {
-                    res.send(post[i]);
+                    res.send({
+                        loggedin: true,
+                        userId: post[i].id
+                    })
                     found = true;
                     break;
                 }
             }
         }
         if (found == false) {
-            res.send('Nem létezik ilyen felhasználó')
+            res.send({
+                loggedin: false
+            })
         }
     })
 }
 
 module.exports = {
+
+    list: (req, res) => {
+        User.find({}, (err, post) => {
+            if (err) {
+                res.send(err)
+            }
+            res.json(post);
+        })
+    },
 
 
     searchUser: (req, res) => {
@@ -71,14 +77,15 @@ module.exports = {
         }
     },
 
-    find: (req, res) => {
-        User.findById(req.params.id, (err, post) => {
+    find: (req, res, id) => {
+        User.findById(id, (err, post) => {
             if (err) {
                 res.send(err)
             }
             res.json(post)
         })
     },
+
 
     create: (req, res) => {
         User.create(req.body, (err, post) => {

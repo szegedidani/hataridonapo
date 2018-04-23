@@ -5,7 +5,7 @@ const datesController = require('../controllers/dates.controller')
 datesRouter.route('/')
   .get(datesController.list)
   .post(datesController.create);
-datesRouter.route('/:id')
+datesRouter.route('/:userId')
   .get(datesController.find)
   .put(datesController.update)
   .delete(datesController.remove);

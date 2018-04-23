@@ -1,17 +1,17 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand(routerlink='main-page' href="/main-page") Főoldal
+  a.navbar-brand(routerLink='main-page', href="/") Főoldal
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor02', aria-controls='navbarColor02', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarColor02.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       li.nav-item(routerLinkActive="active")
-        a(class='nav-link', routerlink='profil', href='/profil') Profil
+        a(class='nav-link', routerLink='profil', href='/') Profil
       li.nav-item
-        a.nav-link(routerlink='knowlage', routerLinkActive="active", href='/knowlage') Tudásbázis
+        a.nav-link(routerLink='knowlage', href='/') Tudásbázis
       li.nav-item
-        a.nav-link(routerlink='restful-api', routerLinkActive="active", href='/restful-api') RESTful API
+        a.nav-link(routerLink='restful-api',  href='/') RESTful API
       li.nav-item
-        a.nav-link(routerlink='contact-us', routerLinkActive="active", href='/contact-us') Kapcsolat
+        a.nav-link(routerLink='contact-us', href='/') Kapcsolat
     form.form-inline.my-2.my-lg-0
       button.btn.btn-warning( data-toggle='modal', data-target='#userModal') Határidőnapló
 
@@ -34,23 +34,23 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .row
               .col-10.offset-1
                 h2 Jelentkezz be !
-                form(action='login')
+                form#login(action='http://localhost:3500/users', methond='post', #loginForm='ngForm', (ngSubmit)='loginUser(loginForm.value)')
                   .form-group
                     label(for='email') Email cím:
-                    input.form-control(type='email', name='email')
+                    input.form-control(type='email', name='email', [(ngModel)]='loginModel.userEmail')
                   .form-group
                     label(for='password') Jelszó:
-                    input.form-control(type='password', name='password')
+                    input.form-control(type='password', name='password', [(ngModel)]='loginModel.password')
+                  button.btn.btn-primary(type='submit') Belépés
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
-            button.btn.btn-primary(type='button') Belépés
         #register.tab-pane.fade(role='tabpanel', aria-labelledby='register-tab')
           // Register Form
           .modal-body
             .row
               .col-10.offset-1
                 h2 Regisztrálj be !
-                form#register(action='http://localhost:3500/users', method='post', #registerForm='ngForm', (ngSubmit)='onSubmit(registerForm.value)')
+                form#register(action='http://localhost:3500/users', method='post', #registerForm='ngForm', (ngSubmit)='registerUser(registerForm.value)')
                   .form-group
                     label(for='userName') Felhasználónév:
                     input#userName.form-control(type='text', name='userName', [(ngModel)]='registerModel.userName')
