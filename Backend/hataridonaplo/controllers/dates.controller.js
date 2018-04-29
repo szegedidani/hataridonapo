@@ -1,5 +1,6 @@
 const Dates = require('../models/datesModel')
 
+
 const list = (req, res) => {
     Dates.find({}, (err, post) => {
         if (err) {
@@ -25,11 +26,6 @@ module.exports = {
             res.send(usersDates)
         })
     },
-    /*Dates.findById(req.params.id, (err, post) => {
-        if (err) {
-            res.send(err)
-        }*/
-
 
 
 
@@ -43,8 +39,7 @@ module.exports = {
     },
 
     update: (req, res) => {
-        req.body.updatedAt = new Date().toLocaleString();
-        Dates.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+        Dates.findByIdAndUpdate(req.params.userId, req.body, (err, post) => {
             if (err) {
                 res.send(err)
             }
@@ -53,11 +48,11 @@ module.exports = {
     },
 
     remove: (req, res) => {
-        Dates.findByIdAndRemove(req.params.id, (err, post) => {
+        Dates.findByIdAndRemove(req.params.userId, (err, post) => {
             if (err) {
                 res.send(err)
             }
             res.json(post)
         })
-    }
+    },
 }

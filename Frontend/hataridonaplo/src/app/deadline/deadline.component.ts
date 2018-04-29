@@ -9,31 +9,55 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./deadline.component.css']
 })
 export class DeadlineComponent implements OnInit {
+  keys: Array<string> = [
+    'title',
+    'date',
+    'description'
+  ];
+
   dates: object = {
     title: '',
     date: '',
     description: ''
   };
-  usersDates: any;
+
+  modal: object = {
+    title: '',
+    date: '',
+    description: ''
+  };
+
+  usersDates: object;
+
 
   constructor(public HttpService: HttpServiceService) {
+    this.showDates();
   }
 
   showDates() {
-    this.usersDates = this.HttpService.getDates();
-    // this.HttpService.userDatas
+    this.HttpService.getDates();
+    setTimeout(() => {
+      this.usersDates = this.HttpService.dates;
+    }, 500);
+
   }
 
   addDate(input) {
-    input.userId = this.HttpService.userDatas.userId;
+    input.userId = this.HttpService.datas.userId;
     this.HttpService.postDate(input);
     this.showDates();
-    console.log(input);
+  }
+
+  deleteDate(date) {
+    this.HttpService.delete(date);
   }
 
   ngOnInit() {
   }
 
-
+  updateDate() {
+    // this.HttpService.updateDate(this.modal);
+    console.log('sajt');
+  }
 
 }

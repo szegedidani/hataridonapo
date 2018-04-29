@@ -1,7 +1,7 @@
 .container
   .row
     .col-2.offset-5
-      button.btn.btn-success(type='button', (click)='showDates()') Határidő mutatása
+      button.btn.btn-success(type='button', (click)='showDates()') Határidők frissítése
     .col-12
       form(action='localhost:3500/dates', method='post', #dateForm='ngForm', (ngSubmit)='addDate(dateForm.value)')
         table.table.table-striped
@@ -15,7 +15,7 @@
               td
                 input#title.form-control(type='text', name='title', [(ngModel)]='dates.title')
               td
-                input#date.form-control(type='text', name='date', [(ngModel)]='dates.date')
+                input#date.form-control(type='date', name='date', [(ngModel)]='dates.date')
               td
                 input#description.form-control(type='text', name='description', [(ngModel)]='dates.description')
               td
@@ -23,6 +23,33 @@
                   button.btn.btn-warning(type='submit') Bevitel
             tr(*ngFor='let date of usersDates')
               td {{date.title}}
-              td {{date.date.slice(0,10)}}
+              td {{date.date}}
               td {{date.description}}
+              td
+                .btn-group
+                  button.btn.btn-info( type="button", data-toggle="modal", data-target="#exampleModal") Módosítás
+                  button.btn.btn-danger((click)="deleteDate(date)", type="button") Törlés
 
+// Modal
+#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Edit Datas
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form(#updateForm='ngForm', (ngSubmit)='updateDate()')
+          .form-group
+            label(for="modalTitle") Cím
+            input.form-control(type="text", name="modalTitle" ,[(ngModel)]="modal.title")
+          .form-group
+            label(for="modalDate") Határidő
+            input.form-control(type="date", name="modalDate" ,[(ngModel)]="modal.date")
+          .form-group
+            label(for="modalDescription") Leírás
+            input.form-control(type="text", name="modalDescription" ,[(ngModel)]="modal.description")
+          .btn-group
+            button.btn.btn-primary(type='submit', value="submit", data-dismiss='modal') Mentés
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
