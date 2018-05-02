@@ -27,6 +27,8 @@ export class DeadlineComponent implements OnInit {
     description: ''
   };
 
+  toUpdate: any;
+
   usersDates: object;
 
 
@@ -55,9 +57,13 @@ export class DeadlineComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateDate() {
-    // this.HttpService.updateDate(this.modal);
-    console.log('sajt');
+  getUpdateId(date) {
+    this.modal = date;
+  }
+
+  updateDate(modal) {
+    modal.userId = this.HttpService.datas.userId;
+    this.HttpService.updateDate(modal);
   }
 
 }

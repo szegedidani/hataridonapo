@@ -27,9 +27,9 @@
               td {{date.description}}
               td
                 .btn-group
-                  button.btn.btn-info( type="button", data-toggle="modal", data-target="#exampleModal") Módosítás
+                  button.btn.btn-info( type="button", data-toggle="modal", data-target="#exampleModal", (click)="getUpdateId(date)") Módosítás
                   button.btn.btn-danger((click)="deleteDate(date)", type="button") Törlés
-
+  
 // Modal
 #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
   .modal-dialog(role='document')
@@ -39,7 +39,7 @@
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
       .modal-body
-        form(#updateForm='ngForm', (ngSubmit)='updateDate()')
+        form(#updateForm='ngForm', (ngSubmit)='updateDate(modal)')
           .form-group
             label(for="modalTitle") Cím
             input.form-control(type="text", name="modalTitle" ,[(ngModel)]="modal.title")
@@ -50,6 +50,6 @@
             label(for="modalDescription") Leírás
             input.form-control(type="text", name="modalDescription" ,[(ngModel)]="modal.description")
           .btn-group
-            button.btn.btn-primary(type='submit', value="submit", data-dismiss='modal') Mentés
+            button.btn.btn-primary(type='button',  data-dismiss='modal', (click)="updateDate(modal)") Mentés
         .modal-footer
           button.btn.btn-secondary(type='button', data-dismiss='modal') Bezár
